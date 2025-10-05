@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { LessonProgress } from "@/components/LessonProgress";
-import { VideoPlayer } from "@/components/VideoPlayer";
+import { StoryCard } from "@/components/StoryCard";
 import { QuizQuestion } from "@/components/QuizQuestion";
 import { QuizResults } from "@/components/QuizResults";
 import { CTASection } from "@/components/CTASection";
 import { BookOpen, Sparkles } from "lucide-react";
+import { lesson1Slides, lesson2Slides, lesson3Slides } from "@/data/storyContent";
 
 const quizQuestions = [
   {
@@ -155,25 +156,25 @@ const Index = () => {
           {/* Main Content Area */}
           <div className="lg:col-span-2">
             {currentStep === 1 && (
-              <VideoPlayer
-                title="УРОК 1: МОЯ ИСТОРИЯ"
-                description="Привет! Я хочу рассказать вам, как я стала тату-мастером и как социальные сети изменили вектор моей работы. Начиная с 15 лет и до сегодняшнего дня - весь путь от первых попыток на свинной коже до работы с клиентами по всему миру. Узнайте, как я использовала Instagram и TikTok для роста своей карьеры."
+              <StoryCard
+                slides={lesson1Slides}
+                lessonTitle="УРОК 1: МОЯ ИСТОРИЯ"
                 onComplete={handleVideoComplete}
               />
             )}
 
             {currentStep === 2 && (
-              <VideoPlayer
-                title="УРОК 2: ПОЧЕМУ СОЦСЕТИ?"
-                description="В 2025 году клиенты ищут тату-мастеров онлайн. Социальные сети позволяют: показать портфолио и уникальный стиль, установить доверительные отношения, получать записи напрямую, создать личный бренд. Даже локальным мастерам соцсети помогают расширять аудиторию и привлекать клиентов, готовых платить за качество."
+              <StoryCard
+                slides={lesson2Slides}
+                lessonTitle="УРОК 2: ПОЧЕМУ СОЦСЕТИ?"
                 onComplete={handleVideoComplete}
               />
             )}
 
             {currentStep === 3 && (
-              <VideoPlayer
-                title="УРОК 3: ПРАКТИКА"
-                description="Построение личного бренда начинается с определения стиля общения и концепции аккаунта. Используйте сторителлинг, создавайте уникальный визуальный стиль. В TikTok постите 2-4 видео в день в разговорном формате. Важно вести соцсети как вторую работу - составьте контент-план и придерживайтесь его. Отвечайте на комментарии, работайте с возражениями профессионально."
+              <StoryCard
+                slides={lesson3Slides}
+                lessonTitle="УРОК 3: ПРАКТИКА"
                 onComplete={handleVideoComplete}
               />
             )}
