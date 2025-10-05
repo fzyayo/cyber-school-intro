@@ -34,11 +34,14 @@ export const StoryCard = ({ slides, onComplete, lessonTitle }: StoryCardProps) =
   };
 
   return (
-    <div className="card-3d hover-3d pixel-grid bg-card rounded-lg border-2 border-primary" style={{
+    <div className="card-3d hover-3d bg-card rounded-lg border-2 border-primary relative" style={{
       boxShadow: 'var(--shadow-3d)'
     }}>
+      {/* Pixel Grid Background */}
+      <div className="absolute inset-0 pixel-grid opacity-30 pointer-events-none rounded-lg" />
+      
       {/* Header with Progress */}
-      <div className="p-6 border-b-2 border-primary/30">
+      <div className="p-6 border-b-2 border-primary/30 relative z-10">
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-pixel text-sm text-primary">{lessonTitle}</h2>
           <div className="flex items-center gap-2">
@@ -52,7 +55,7 @@ export const StoryCard = ({ slides, onComplete, lessonTitle }: StoryCardProps) =
       </div>
 
       {/* Story Content */}
-      <div className="p-8 md:p-12 min-h-[400px] flex flex-col justify-center">
+      <div className="p-8 md:p-12 min-h-[400px] flex flex-col justify-center relative z-10">
         <div className="text-center space-y-6 animate-fade-in">
           {slides[currentSlide].icon && (
             <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center animate-pulse-glow border-2 border-primary/50">
@@ -71,7 +74,7 @@ export const StoryCard = ({ slides, onComplete, lessonTitle }: StoryCardProps) =
       </div>
 
       {/* Navigation */}
-      <div className="p-6 border-t-2 border-primary/30 flex items-center justify-between gap-4">
+      <div className="p-6 border-t-2 border-primary/30 flex items-center justify-between gap-4 relative z-10">
         <Button
           onClick={handlePrev}
           disabled={currentSlide === 0}
